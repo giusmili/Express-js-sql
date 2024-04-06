@@ -1,0 +1,155 @@
+/* reset css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+html{
+    font-size: 62.5%;
+}
+body{
+    font: 1.6rem "Roboto", sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+h1,h2,h3,p,figure,ul,ol{
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    list-style: none;
+}
+input,input[type="submit"], button{
+    border: 0;
+    background-color: transparent;
+    font-size: inherit;
+}
+a{
+    text-decoration: none;
+    color: #222;
+}
+fieldset{
+    border: solid .1rem transparent;
+}
+*{
+    box-sizing: border-box;
+}
+/* theme de la page  */
+:root{
+    --color-theme-main: #3B5998;
+    --color-theme-secondary: #8B9DC3;
+    --color-theme-last: #DFE3EE;
+    --color-theme-default: #dfe6e9;
+    --color-theme-warning: rgba(218, 13, 13, 1);
+}
+.warning{
+    background-color: var(--color-theme-warning);
+    text-align: center;
+    line-height: 3.5rem;
+    color: #fff;
+    font-weight: 400;
+    font-style: 2rem;
+    display: none;
+}
+.show-warning{
+    display: block;
+}
+header{
+    background-color: var(--color-theme-main);
+}
+header h1{
+    line-height: 6.5rem;
+    text-align: center;
+    color: var(--color-theme-last);
+    font-weight: 300;
+}
+header h1::before{
+    content:url(../asset/send.svg);
+    vertical-align: middle;
+    margin-right: .5rem;
+    filter:invert(100%);/* inverser la couleur */
+}
+main .inner-form{
+    max-width: 80.0rem;
+    margin: 5rem auto 0;
+    padding: 2rem;
+}
+.inner-form ul{
+    list-style-type: none;
+    padding: 1rem;
+}
+fieldset legend{
+    font-size: 2rem;
+    padding: 1rem;
+}
+fieldset{
+    padding: 1rem;
+    border: solid .1rem var(--color-theme-main);
+    border-radius: .4rem;
+}
+fieldset form *{
+    display: block;
+    width: 100%;
+    line-height: 3.5rem;
+    border: solid .1rem #ccc;
+    margin-bottom: .5rem;
+}
+fieldset form label, fieldset small{
+    border: 0;
+}
+fieldset small{
+    font-style: italic;
+    color: var(--color-theme-main);
+}
+fieldset form input[placeholder]{
+    font-style: italic;
+    transition-duration: 0.5s;
+       
+}
+/* bordure en style */
+fieldset form input{
+    border: 0;
+    border: solid .1rem transparent;
+    border-bottom-color: rgb(180, 178, 178);
+    width: 25%;
+    opacity: 0.8;
+    transition-duration: 0.5s; 
+}
+/* focus animé */
+fieldset form input:focus{
+    border-bottom-color: rgb(119, 117, 117);
+    width: 100%;
+    opacity: 1;
+}
+fieldset form input[placeholder]:focus,
+fieldset form input[type="date"]:focus{
+    outline: 0;
+    box-shadow: 0 0 1rem var(--color-theme-warning);
+    background-color: var(--color-theme-default);   
+}
+fieldset form input[type="submit"], fieldset form button{
+    background-color: var(--color-theme-main);
+    color: #DFE3EE;
+    border-radius: .4rem;
+    text-transform: uppercase;
+    letter-spacing: .01rem;
+    cursor: pointer;
+    margin: 0;
+    font-size: initial;
+    border: 0;
+    width: 100%;
+    opacity: 1;
+    line-height: 4.5rem;
+}
+fieldset form input{
+    padding: .5rem;
+}
+/* response server */
+ul.response-server{
+    max-width: 80rem;
+    margin: 1rem auto;
+    padding: 2rem;
+
+}
+ul.response-server > li{
+    text-transform: capitalize;
+}
+footer *{
+    text-align: center;
+    font-size: small;
+}
