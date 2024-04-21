@@ -1,11 +1,9 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const path = require('path'); // Ajoutez cette ligne pour importer le module 'path'
+const path = require('path');
 const app = express();
 const port = 3000;
-
-
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -46,17 +44,19 @@ app.post('/api/submit-form', (req, res) => {
 
 // Route for the root URL
 app.get('/', (req, res) => {
- /*  res.send('Bienvenue sur le serveur !'); */
- res.sendFile(path.join(__dirname, 'public', 'index.html'));
-
-
-  
+    res.render('index'); // Rendre la vue index.ejs
 });
 
 // Servir des fichiers statiques depuis le dossier 'public'
 app.use(express.static(path.join(__dirname, 'public')));
-// Start the server
 
+// Configuration du répertoire pour les fichiers de vues
+app.set('views', path.join(__dirname, 'views'));
+
+// Configuration du moteur de template (EJS)
+app.set('view engine', 'ejs');
+
+// Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

@@ -10,6 +10,7 @@
 * Initialisez un projet Node.js avec npm init -y pour créer un fichier package.json.
 * ```npm install express mysql body-parser```
 * Créez un fichier server.js dans votre dossier.
+* installer npm install ejs
 * Dans server.js, placez le code suivant :
 ```js
 const express = require('express');
