@@ -47,11 +47,13 @@ app.get('/', (req, res) => {
   let pageTitle = "Inscription étudiants"; // Définir la variable pageTitle
   let appName = "Application - EJS"; // Définir la variable appName
   const lang = ["Twig","EJS", "Blade"];
+  const currentDate = new Date().getFullYear();
 
   res.render('index', { 
     pageTitle, 
     appName,
-    lang
+    lang,
+    currentDate
   }); // Passer les variables à la vue index.ejs
 });
 
