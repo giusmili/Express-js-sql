@@ -44,7 +44,15 @@ app.post('/api/submit-form', (req, res) => {
 
 // Route for the root URL
 app.get('/', (req, res) => {
-    res.render('index'); // Rendre la vue index.ejs
+  let pageTitle = "Inscription étudiants"; // Définir la variable pageTitle
+  let appName = "Application - EJS"; // Définir la variable appName
+  const lang = ["Twig","EJS", "Blade"];
+
+  res.render('index', { 
+    pageTitle, 
+    appName,
+    lang
+  }); // Passer les variables à la vue index.ejs
 });
 
 // Servir des fichiers statiques depuis le dossier 'public'
