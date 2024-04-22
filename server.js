@@ -44,12 +44,12 @@ app.post('/api/submit-form', (req, res) => {
 
 // Route for the root URL
 app.get('/', (req, res) => {
-  let pageTitle = "Inscription étudiants"; // Définir la variable pageTitle
-  let appName = "Application - EJS"; // Définir la variable appName
+  let pageTitle = "Inscription étudiants"; // Définir les variables
+  let appName = "Application - EJS"; 
   const lang = ["Twig","EJS", "Blade"];
   const currentDate = new Date().getFullYear();
 
-  res.render('index', { 
+  res.render('index', { // rappel dans la méthode des variables à passe à la vue
     pageTitle, 
     appName,
     lang,
