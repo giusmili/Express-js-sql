@@ -12,7 +12,8 @@
 * Créez un fichier server.js dans votre dossier.
 * installer ```npm install ejs```
 * ```npm install -g nodemon```
-* Dans server.js, placez le code suivant :
+* Entrez dans le terminal la cmd : ```nodemon server.js```
+* Dans server.js, placez le code suivant : 
 ```js
 const express = require('express');
 const mysql = require('mysql');
