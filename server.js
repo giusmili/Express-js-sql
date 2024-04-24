@@ -57,6 +57,33 @@ app.get('/', (req, res) => {
   }); // Passer les variables à la vue index.ejs
 });
 
+//route pour afficher dans un fichier ejs les données
+// Route pour afficher les données depuis la base de données
+app.get('/donnees', (req, res) => {
+  // Effectuer une requête SQL pour récupérer les données depuis la base de données
+  connection.query('SELECT * FROM formulaire_client', (err, rows) => {
+      if (err) {
+          console.error('Erreur lors de la récupération des données depuis la base de données:', err);
+          res.status(500).send('Erreur lors de la récupération des données');
+          return;
+      }
+      // Passer les données récupérées à la vue lors du rendu de la page
+      res.render('donnees', { donnees: rows });
+      // Définir des variables pour le footer
+      const annee = new Date().getFullYear(); // Obtenir l'année actuelle
+      const auteur = 'GiusMili'; // Remplacez par votre nom ou le nom de l'auteur
+      
+      // Passer les données récupérées et les variables du footer à la vue lors du rendu de la page
+      res.render('donnees', 
+      { 
+        donnees: rows, 
+        annee: annee, 
+        auteur: auteur 
+      });
+  });
+});
+
+
 // Servir des fichiers statiques depuis le dossier 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -70,3 +97,4 @@ app.set('view engine', 'ejs');
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
