@@ -160,7 +160,7 @@ section.primary-list{
 section.primary-list h2{
     line-height: 7rem;
 }
-section.primary-list ul li:nth-child(4n + 4){
+section.primary-list ul li:nth-child(5n + 5){
     border-bottom: solid .1rem #ccc;
     padding-bottom: .8rem;
 }

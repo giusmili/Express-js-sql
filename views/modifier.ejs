@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulaire d'inscription pour les écoles...">
+    <title>Page admin</title>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <h1>Modifier l'élément</h1>
+    <form action="/modifier/<%= element.id %>" method="post">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" value="<%= element.nom %>" required>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" value="<%= element.prenom %>" required>
+        <label for="date">Date de naissance:</label>
+        <input type="date" id="date" name="date" value="<%= element.date %>" required>
+        <label for="phone">Téléphone:</label>
+        <input type="text" id="phone" name="phone" value="<%= element.phone %>" required>
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+</body>
+</html>

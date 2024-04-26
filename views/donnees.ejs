@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
    
@@ -32,8 +32,11 @@
                     <li>Prénom : <%= donnee.prenom %></li>
                     <li>Date de naissance : <%= donnee.date %></li>
                     <li>Phone : <%= donnee.phone %></li>  <!-- Remplacez 'nom' et 'valeur' par les noms de vos colonnes -->
+                    <li><a href="/modifier/<%= donnee.id %>">Modifier</a></li>
                 <% }); %>
             </ul>
+        
+
         </section>
        
     </main>

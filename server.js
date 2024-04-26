@@ -57,7 +57,8 @@ app.get('/', (req, res) => {
   }); // Passer les variables à la vue index.ejs
 });
 
-//route pour afficher dans un fichier ejs les données
+
+
 // Route pour afficher les données depuis la base de données
 app.get('/donnees', (req, res) => {
   // Effectuer une requête SQL pour récupérer les données depuis la base de données
@@ -82,6 +83,61 @@ app.get('/donnees', (req, res) => {
       });
   });
 });
+
+// partie update
+// Route pour afficher la page de modification/suppression
+/* app.get('/modifier', (req, res) => {
+  // Code pour afficher la page de modification
+  res.render('modifier');
+});
+ */
+app.get('/modifier/:id', (req, res) => {
+  const id = req.params.id;
+
+  // Récupérer les données de l'élément à partir de la base de données
+  connection.query('SELECT * FROM formulaire_client WHERE id = ?', [id], (err, rows) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des données de l\'élément:', err);
+      res.status(500).send('Erreur lors de la récupération des données de l\'élément');
+      return;
+    }
+
+    // Afficher la page de modification avec les données récupérées
+    res.render('modifier', { element: rows[0] });
+
+    // Envoyer une réponse confirmant la modification réussie
+    console.log("Success")
+  });
+});
+
+app.post('/modifier/:id', (req, res) => {
+  const id = req.params.id; // Récupérer l'ID depuis les paramètres de l'URL
+  const { nom, prenom, date, phone } = req.body; // Récupérer les données du formulaire
+
+  // Effectuer la mise à jour des données dans la base de données
+  connection.query(
+    'UPDATE formulaire_client SET nom = ?, prenom = ?, date = ?, phone = ? WHERE id = ?',
+    [nom, prenom, date, phone, id],
+    (err, result) => {
+      if (err) {
+        console.error('Erreur lors de la mise à jour des données :', err);
+        res.status(500).send('Erreur lors de la mise à jour des données');
+        return;
+      }
+      console.log('Données mises à jour avec succès');
+      res.redirect('/donnees'); // Rediriger l'utilisateur vers une autre page après la mise à jour
+    }
+  );
+});
+
+
+
+
+
+
+
+
+
 
 
 // Servir des fichiers statiques depuis le dossier 'public'
