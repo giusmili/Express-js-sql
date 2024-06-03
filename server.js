@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
   let pageTitle = "Inscription étudiants"; // Définir les variables
   let appName = "Application - EJS"; 
   const lang = ["Twig","EJS", "Blade"];
-  const currentDate = new Date().getFullYear();
+  const currentDate = new Date().toLocaleDateString('fr-FR');
 
   res.render('index', { // rappel dans la méthode des variables à passe à la vue
     pageTitle, 
@@ -69,16 +69,18 @@ app.get('/donnees', (req, res) => {
           return;
       }
       // Passer les données récupérées à la vue lors du rendu de la page
-      res.render('donnees', { donnees: rows });
+      
       // Définir des variables pour le footer
-      const annee = new Date().getFullYear(); // Obtenir l'année actuelle
+      const annee = new Date()
+      const formattedDate = annee.toLocaleDateString('fr-FR');
+       // Obtenir l'année actuelle
       const auteur = 'GiusMili'; // Remplacez par votre nom ou le nom de l'auteur
       
       // Passer les données récupérées et les variables du footer à la vue lors du rendu de la page
       res.render('donnees', 
       { 
         donnees: rows, 
-        annee: annee, 
+        annee: formattedDate, 
         auteur: auteur 
       });
   });

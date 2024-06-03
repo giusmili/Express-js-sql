@@ -15,17 +15,27 @@
 </head>
 
 <body>
-    <h1>Modifier l'élément</h1>
-    <form action="/modifier/<%= element.id %>" method="post">
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" value="<%= element.nom %>" required>
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom" value="<%= element.prenom %>" required>
-        <label for="date">Date de naissance:</label>
-        <input type="date" id="date" name="date" value="<%= element.date %>" required>
-        <label for="phone">Téléphone:</label>
-        <input type="text" id="phone" name="phone" value="<%= element.phone %>" required>
-        <button type="submit">Enregistrer les modifications</button>
-    </form>
+    <header>
+
+        <h1>Modifier l'élément</h1>
+    </header>
+    <main>
+        <div class="inner-form" role="form">
+        <fieldset>
+            <legend>Espace membre</legend>
+        <form action="/modifier/<%= element.id %>" method="post">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" value="<%= element.nom %>" required>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" value="<%= element.prenom %>" required>
+            <label for="date">Date de naissance:</label>
+            <input type="date" id="date" name="date" value="<%= element.date %>" required>
+            <label for="phone">Téléphone:</label>
+            <input type="text" id="phone" name="phone" value="<%= element.phone %>" required>
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+        </fieldset>
+        </div>
+    </main>
 </body>
 </html>
